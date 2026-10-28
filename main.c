@@ -11,6 +11,8 @@ List *head1,*tail1;
 head1=tail1=NULL;
 List *head2,*tail2;
 head2=tail2=NULL;
+List *headr,*tailr;
+headr=tailr=NULL;
 char *str1=argv[1];
 char *str2=argv[3];
 for(int i=0;str1[i]!=0;i++)
@@ -23,6 +25,12 @@ for(int i=0;str2[i]!=0;i++)
     int data=str2[i]-48;
     insert_last(&head2,&tail2,data);
 }
+printf("operand1\n");
 print_list(&head1);
+printf("operand2\n");
 print_list(&head2);
+if(argv[2][0]=='+')
+addition(&tail1,&tail2,&headr,&tailr);
+printf("Addition list\n");
+print_list(&headr);
 }

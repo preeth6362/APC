@@ -2,7 +2,7 @@
 
 int insert_last(List **head,List **tail,int data)
 {
-    List *nnode=malloc(sizeof(struct list));
+    List *nnode=malloc(sizeof(List));
     if(nnode==NULL)return FAILURE;
     nnode->data=data;
     nnode->prev=NULL;
@@ -16,6 +16,24 @@ int insert_last(List **head,List **tail,int data)
     nnode->prev=*tail;
     (*tail)->next=nnode;
     *tail=nnode;
+    return SUCCESS;
+}
+int insert_first(List **head,List **tail,int data)
+{
+    List *nnode=malloc(sizeof(List));
+    if(nnode==NULL)return FAILURE;
+    nnode->data=data;
+    nnode->prev=NULL;
+    nnode->next=NULL;
+     if(*head==NULL)
+    {
+        *head=nnode;
+        *tail=nnode;
+        return SUCCESS;
+    }
+    nnode->next=*head;
+    (*head)->prev=nnode;
+    *head=nnode;
     return SUCCESS;
 }
 int print_list(List **head)

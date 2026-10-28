@@ -15,4 +15,6 @@ typedef struct list
 
 int insert_last(List **head,List **tail,int data);
 int print_list(List **head);
+int insert_first(List **head,List **tail,int data);
+int addition(List **tail1,List **tail2,List **headr,List **tailr);
 #endif
