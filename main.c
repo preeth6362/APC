@@ -30,7 +30,18 @@ print_list(&head1);
 printf("operand2\n");
 print_list(&head2);
 if(argv[2][0]=='+')
+{
 addition(&tail1,&tail2,&headr,&tailr);
 printf("Addition list\n");
 print_list(&headr);
+}
+else if(argv[2][0]=='-')
+{
+    if(compare_lists(&head1,&tail1,&head2,&tail2)==SWAP)
+    subraction(&tail2,&tail1,&headr,&tailr,1);
+    else
+    subraction(&tail1,&tail2,&headr,&tailr,0);
+printf("Subraction list\n");
+print_list(&headr);
+}
 }

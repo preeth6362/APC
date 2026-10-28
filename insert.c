@@ -36,6 +36,42 @@ int insert_first(List **head,List **tail,int data)
     *head=nnode;
     return SUCCESS;
 }
+
+int compare_lists(List **head1,List **tail1,List **head2,List **tail2)
+{
+int len1=0,len2=0;
+List *temp1=*head1,*temp2=*head2;
+while(temp1!=NULL)
+{
+    len1++;
+    temp1=temp1->next;
+}
+while(temp2!=NULL)
+{
+    len2++;
+    temp2=temp2->next;
+}
+if(len1<len2)
+return SWAP;
+else if(len1==len2)
+{
+    temp1=*head1;
+    temp2=*head2;
+    while(temp1!=NULL)
+    {
+        if(temp1->data<temp2->data)
+        return SWAP;
+        else if(temp1->data>temp2->data)
+        return 1;
+        else{
+        temp1=temp1->next;
+        temp2=temp2->next;
+        }
+    }
+}
+return 1;
+}
+
 int print_list(List **head)
 {
     if(*head==NULL)return FAILURE;
