@@ -44,4 +44,10 @@ else if(argv[2][0]=='-')
 printf("Subraction list\n");
 print_list(&headr);
 }
+else if(argv[2][0]=='x')
+{
+    multiply(&tail1,&tail2,&headr,&tailr);
+    printf("multiplication list\n");
+    print_list(&headr);  
+}
 }

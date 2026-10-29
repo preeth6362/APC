@@ -72,6 +72,19 @@ else if(len1==len2)
 return 1;
 }
 
+int delete_list(List **head,List **tail)
+{
+    List *temp=*head;
+    while(temp!=NULL)
+    {
+        *head=(*head)->next;
+        free(temp);
+        temp=*head;
+    }
+    *tail=NULL;
+    return SUCCESS;
+}
+
 int print_list(List **head)
 {
     if(*head==NULL)return FAILURE;

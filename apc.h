@@ -20,4 +20,6 @@ int insert_first(List **head,List **tail,int data);
 int addition(List **tail1,List **tail2,List **headr,List **tailr);
 int subraction(List **tail1,List **tail2,List **headr,List **tailr,char sign);
 int compare_lists(List **head1,List **tail1,List **head2,List **tail2);
+int multiply(List **tail1,List **tail2,List **headr,List **tailr);
+int delete_list(List **head,List **tail);
 #endif
