@@ -1,6 +1,6 @@
 #include "apc.h"
 
-int addition(List **tail1,List **tail2,List **headr,List **tailr)
+int addition(List **tail1,List **tail2,List **headr,List **tailr,int sign)
 {
 List *temp1=*tail1;
 List *temp2=*tail2;
@@ -29,13 +29,13 @@ while(temp1||temp2)
 if(carry)
 {
     insert_first(headr,tailr,carry);
-    return SUCCESS;
 }
-else 
+if(sign)
+(*headr)->data=-(*headr)->data;
 return SUCCESS;
 }
 
-int subraction(List **tail1,List **tail2,List **headr,List **tailr,char sign)
+int subraction(List **tail1,List **tail2,List **headr,List **tailr,int sign)
 {
 List *temp1=*tail1;
 List *temp2=*tail2;
@@ -78,14 +78,7 @@ while(temp1||temp2)
     data=operand1-operand2;
     insert_first(headr,tailr,data);
 }
-temp1=*headr;
-while(temp1!=*tailr&&temp1->data==0)
-{
-    temp1=temp1->next;
-    free(temp1->prev);
-    temp1->prev=NULL;
-    *headr=temp1;
-}
+delete_zero(headr,tailr);
 if(sign)
 (*headr)->data=-(*headr)->data;
 return SUCCESS;
