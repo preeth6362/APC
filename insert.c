@@ -118,13 +118,11 @@ int print_list(List **head)
 {
     if(*head==NULL)return FAILURE;
     List *temp=*head;
-    printf("head-> %d",temp->data);
-    temp=temp->next;
     while(temp!=NULL)
     {
-        printf(" <-> %d",temp->data);
+        printf("%d",temp->data);
         temp=temp->next;
     }
-    printf(" <-tail\n");
+    printf("\n");
     return SUCCESS;
 }

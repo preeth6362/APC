@@ -32,15 +32,13 @@ if(operator=='+')
 {
     if(str1[0]=='-'&&str2[0]=='-')
     sign=1;
-    else if(str1[0]=='-'&&str2[0]=='+')
+    else if(str1[0]=='-')
     {
         str1=argv[3];
         str2=argv[1];
         operator='-';
     }
-    else if(str1[0]=='+'&&str2[0]=='-')
-    operator='-';
-    else if(str1[0]=='-'||str2[0]=='-')
+    else if(str2[0]=='-')
     operator='-';
 }
 else if(operator=='-')
@@ -86,16 +84,14 @@ for(int i=0;str2[i]!=0;i++)
     int data=str2[i]-48;
     insert_last(&head2,&tail2,data);
 }
-printf("operand1\n");
+/*printf("operand1\n");
 print_list(&head1);
 printf("operand2\n");
-print_list(&head2);
+print_list(&head2);*/
 
 if(operator=='+')
 {
 addition(&tail1,&tail2,&headr,&tailr,sign);
-printf("Addition list\n");
-print_list(&headr);
 }
 else if(operator=='-')
 {
@@ -103,19 +99,22 @@ else if(operator=='-')
     subraction(&tail2,&tail1,&headr,&tailr,1);
     else
     subraction(&tail1,&tail2,&headr,&tailr,0);
-printf("Subraction list\n");
-print_list(&headr);
 }
 else if(operator=='x')
 {
-    multiply(&tail1,&tail2,&headr,&tailr,sign);
-    printf("multiplication list\n");
-    print_list(&headr);  
+    multiply(&tail1,&tail2,&headr,&tailr,sign); 
 }
 else if(operator=='/')
 {
-    divide(&head1,&head2,&tail2,&headr,&tailr,sign);
-    printf("division list\n");
-    print_list(&headr); 
+    divide(&head1,&head2,&tail2,&headr,&tailr,sign); 
 }
+str1=argv[1];
+for(int i=0;str1[i]!=0;i++)
+printf("%c",str1[i]);
+printf(" %c ",argv[2][0]);
+str1=argv[3];
+for(int i=0;str1[i]!=0;i++)
+printf("%c",str1[i]);
+printf(" = ");
+print_list(&headr);
 }
